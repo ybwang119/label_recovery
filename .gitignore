@@ -5,3 +5,5 @@
 !label_reco_exp.ipynb
 !label_reco_exp_2.ipynb
 !reconstruct_demo.ipynb
+!model.py
+!metrics.py
