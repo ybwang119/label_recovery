@@ -17,8 +17,7 @@ from skimage.metrics import structural_similarity as SSIM
 from skimage.metrics import peak_signal_noise_ratio as PSNR
 from model import AlexNet, Bottleneck, BasicBlock,fc, ResNet,LeNet
 print(torch.__version__, torchvision.__version__)
-from resnet_label_smooth import ResNet18_ls
-from resnet_mixup import ResNet18_mx
+from resnet import ResNet18
 class label_recovery():
     
     def __init__(self,CONFIG) -> None:
@@ -71,20 +70,20 @@ class label_recovery():
             #self.net=torchvision.models.resnet18(False)
             if self.config['pretrained']:
                 if self.config['type']=='label_smooth' and self.config['dataset']=='cifar10':
-                    self.net=ResNet18_ls(10)
+                    self.net=ResNet18(10)
                     net_weight=torch.load('/home/yanbo.wang/data/label_smooth_checkpoint/2023-04-07 12:56:01resnet_modified.pth',map_location=self.device)['net']
                     self.forward_function=self.net.linear
                 elif self.config['type']=='mixup'and self.config['dataset']=='cifar10':
                     net_weight=torch.load('/home/yanbo.wang/data/mixup_checkpoint/2023-04-10 15:33:47 ResNet_95.45.pth',map_location=self.device)
-                    self.net=ResNet18_mx(10)
+                    self.net=ResNet18(10)
                     self.forward_function=self.net.linear
                 elif self.config['type']=='label_smooth'and self.config['dataset']=='flowers':
                     net_weight=torch.load('/home/yanbo.wang/data/label_smooth_checkpoint/2023-05-05 19:13:31flower_resnet_18_83.611.pth',map_location=self.device)['net']
-                    self.net=ResNet18_ls(17)
+                    self.net=ResNet18(17)
                     self.forward_function=self.net.linear
                 elif self.config['type']=='mixup'and self.config['dataset']=='flowers':
                     net_weight=torch.load('/home/yanbo.wang/data/mixup_checkpoint/2023-05-05 19:31:08 resnet_flowers_pa.pth',map_location=self.device)
-                    self.net=ResNet18_mx(17)
+                    self.net=ResNet18(17)
                     self.forward_function=self.net.linear
                 self.net.load_state_dict(net_weight)
             else:
