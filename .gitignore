@@ -7,3 +7,5 @@
 !reconstruct_demo.ipynb
 !model.py
 !metrics.py
+!resnet_label_smooth.py
+!resnet_mixup.py
