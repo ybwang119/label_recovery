@@ -8,3 +8,5 @@
 !model.py
 !metrics.py
 !resnet.py
+!mixup_cifar10_method.py
+!label_smooth_cifar10_method.py
