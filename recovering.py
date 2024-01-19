@@ -71,18 +71,18 @@ class label_recovery():
             if self.config['pretrained']:
                 if self.config['type']=='label_smooth' and self.config['dataset']=='cifar10':
                     self.net=ResNet18(10)
-                    net_weight=torch.load('/home/yanbo.wang/data/label_smooth_checkpoint/2023-04-07 12:56:01resnet_modified.pth',map_location=self.device)['net']
+                    net_weight=torch.load('data/label_smooth_checkpoint/resnet18.pth',map_location=self.device)['net']
                     self.forward_function=self.net.linear
                 elif self.config['type']=='mixup'and self.config['dataset']=='cifar10':
-                    net_weight=torch.load('/home/yanbo.wang/data/mixup_checkpoint/2023-04-10 15:33:47 ResNet_95.45.pth',map_location=self.device)
+                    net_weight=torch.load('data/mixup_checkpoint/resnet18.pth',map_location=self.device)
                     self.net=ResNet18(10)
                     self.forward_function=self.net.linear
                 elif self.config['type']=='label_smooth'and self.config['dataset']=='flowers':
-                    net_weight=torch.load('/home/yanbo.wang/data/label_smooth_checkpoint/2023-05-05 19:13:31flower_resnet_18_83.611.pth',map_location=self.device)['net']
+                    net_weight=torch.load('data/label_smooth_checkpoint/flower_resnet_18.pth',map_location=self.device)['net']
                     self.net=ResNet18(17)
                     self.forward_function=self.net.linear
                 elif self.config['type']=='mixup'and self.config['dataset']=='flowers':
-                    net_weight=torch.load('/home/yanbo.wang/data/mixup_checkpoint/2023-05-05 19:31:08 resnet_flowers_pa.pth',map_location=self.device)
+                    net_weight=torch.load('data/mixup_checkpoint/resnet_flowers.pth',map_location=self.device)
                     self.net=ResNet18(17)
                     self.forward_function=self.net.linear
                 self.net.load_state_dict(net_weight)
@@ -96,11 +96,11 @@ class label_recovery():
             self.net=LeNet(self.classes)
             if self.config['pretrained']:
                 if self.config['type']=='label_smooth' and self.config['dataset']=='cifar10':
-                    net_weight=torch.load('/home/yanbo.wang/data/label_smooth_checkpoint/2023-04-07 13:48:55lenet_modified.pth',map_location=self.device)['net']
+                    net_weight=torch.load('data/label_smooth_checkpoint/lenet.pth',map_location=self.device)['net']
                     self.net.load_state_dict(net_weight)
 
                 elif self.config['type']=='mixup' and self.config['dataset']=='cifar10':
-                    net_weight=torch.load('/home/yanbo.wang/data/mixup_checkpoint/lenet59.84.pth',map_location=self.device)
+                    net_weight=torch.load('data/mixup_checkpoint/lenet.pth',map_location=self.device)
                     self.net.load_state_dict(net_weight)
             else:
                 self._weights_init()
@@ -112,11 +112,11 @@ class label_recovery():
             self.net=AlexNet(self.classes)
             if self.config['pretrained']:
                 if self.config['type']=='label_smooth' and self.config['dataset']=='flowers':
-                    net_weight=torch.load('/home/yanbo.wang/data/label_smooth_checkpoint/2023-05-05 19:09:42flower_alexnet_99.pth',map_location=self.device)['net']
+                    net_weight=torch.load('data/label_smooth_checkpoint/flower_alexnet.pth',map_location=self.device)['net']
                     self.net.load_state_dict(net_weight)
 
                 elif self.config['type']=='mixup' and self.config['dataset']=='flowers':
-                    net_weight=torch.load('/home/yanbo.wang/data/mixup_checkpoint/2023-05-05 20:50:07 alexnet_flowers_pa.pth',map_location=self.device)
+                    net_weight=torch.load('data/mixup_checkpoint/flower_alexnet.pth',map_location=self.device)
                     self.net.load_state_dict(net_weight)
 
             else:
@@ -192,7 +192,6 @@ class label_recovery():
         if type=="hard_label":
             loss=self.criterion(y,self.hard_label)
         elif type=='variant':
-            #测试稳定性，hardlabel的梯度跟之前进行比较
             loss=self.criterion(y,self.origin_label)
         self.net.zero_grad()
         dy_dx = torch.autograd.grad(loss, self.net.parameters(),retain_graph=True)
