@@ -11,3 +11,4 @@
 !mixup_cifar10_method.py
 !label_smooth_cifar10_method.py
 !draw_pic_demo.ipynb
+!readme.md
