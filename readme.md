@@ -18,7 +18,7 @@ In `label_rec_exp.ipynb` We present a full example of label recovery, where the 
 
 In `draw_pic_demo.ipynb` we show how to generate the pics in Figure 1.
 
-In `reconstruct_demo.ipynb` we show how to reconstruct images from FCN-4 with well-recovered last-layer features analytically.
+In `reconstruct_demo.ipynb` we show how to reconstruct images from FCN-4 with well-recovered last-layer features analytically. Pics are identical to those in Figure 3.
 ## Citations
 If you find this code useful for your research, please cite our papers.
 ```
