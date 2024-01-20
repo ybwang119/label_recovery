@@ -1,6 +1,5 @@
 # **[ICLR 2024] Towards Elminating Hard Label Constraints in Gradient Inverision Attacks**
-This is the official repositaory for [ICLR 2024] accepted poster:
-**Towards Elminating Hard Label Constraints in Gradient Inverision Attacks**
+This is the official repositaory for [ICLR 2024] accepted poster.
 
 arxiv link: 
 
