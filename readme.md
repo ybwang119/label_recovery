@@ -21,10 +21,12 @@ In `draw_pic_demo.ipynb` we show how to generate the pics in Figure 1.
 In `reconstruct_demo.ipynb` we show how to reconstruct images from FCN-4 with well-recovered last-layer features analytically.
 ## Citations
 If you find this code useful for your research, please cite our papers.
-> @inproceedings{
+```
+@inproceedings{
 wang2024towards,
 title={Towards Eliminating Hard Label Constraints in Gradient Inversion Attacks},
 author={Yanbo Wang, Jian Liang, Ran He},
 booktitle={The Twelfth International Conference on Learning Representations},
 year={2024}
 }
+``` 
