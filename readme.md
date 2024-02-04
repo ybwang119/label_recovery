@@ -23,6 +23,8 @@ In `draw_pic_demo.ipynb` we show how to generate the pics in Figure 1.
 
 In `reconstruct_demo.ipynb` we show how to reconstruct images from FCN-4 with well-recovered last-layer features analytically. Pics are identical to those in Figure 3.
 
+All weights of pretrained networks used in our experiments are attached in our [google drive](https://drive.google.com/drive/folders/1Wq6636iESPyUMSIWDhjN0CQ3CODTzZFe?usp=drive_link).
+
 Our codes are developed based on [IG Repository](https://github.com/JonasGeiping/invertinggradients) and [DLG Repository](https://github.com/mit-han-lab/dlg). Sincerely thanks for their contributions to the community!
 ## Citations
 If you find this code useful for your research, please cite our papers.
