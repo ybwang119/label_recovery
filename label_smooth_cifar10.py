@@ -72,7 +72,7 @@ CONFIG=OrderedDict(device=torch.device('cuda:'+args.cuda),
 
 dir_name='data/fc_recovery/final_opt/'+CONFIG['type']+'_'+str(args.tv)+'_cuda:'+args.cuda+'_'+cost_fn+'_'+str(CONFIG['pretrained'])+datetime.strftime(datetime.now(),'%Y-%m-%d %H:%M:%S')
 test=label_recovery(CONFIG)
-data_index_list=np.load("data/fc_recovery/mixup_list.npy")
+data_index_list=np.load("additional_files/mixup_list_cifar10.npy")
 loss_fn_alex = LPIPS(net='alex')
 loss_fn_vgg = LPIPS(net='vgg')
 
