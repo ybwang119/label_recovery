@@ -35,22 +35,22 @@ class label_recovery():
             self.size=(224,224)
             self.classes=17
             self.datadir="data/17flowers/"
-            self.datalist="data/17flowers/dataset_flower.csv"
+            self.datalist="additional_files/dataset_flower.csv"
         elif self.config['dataset']=="imagenet":
             self.classes=1000
             self.size=(224,224)
             self.datadir="data/imagenet/pure__data/"
-            self.datalist='data/imagenet/pure__data/validation_ground_truth.csv'   
+            self.datalist='additional_files/dataset_imagenet.csv'   
         elif self.config['dataset']=="cifar10":
             self.classes=10
             self.size=(32,32)
             self.datadir="data/CIFAR10/test/"
-            self.datalist="data/CIFAR10/test_ground_truth.csv"
+            self.datalist="additional_files/dataset_cifar10.csv"
         elif self.config['dataset']=="cifar100":
             self.size=(32,32)
             self.classes=100
             self.datadir="data/CIFAR100/test/"
-            self.datalist="data/CIFAR100/test_ground_truth.csv" 
+            self.datalist="additional_files/dataset_cifar100.csv" 
         
         if self.config['network']=="fc":
             self.net=fc(self.classes).to(self.device)

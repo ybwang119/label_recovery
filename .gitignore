@@ -3,7 +3,7 @@
 !mixup_cifar10.py
 !label_smooth_cifar10.py
 !label_reco_exp.ipynb
-!label_reco_exp_2.ipynb
+!label_reco_exp_demo.ipynb
 !reconstruct_demo.ipynb
 !model.py
 !metrics.py
@@ -14,3 +14,4 @@
 !readme.md
 !mixup_list.npy
 !LICENSE
+!/additional_files
